@@ -4,7 +4,7 @@ import path from "path";
 import { readFile, unlink, writeFile } from "fs/promises";
 
 export async function loadData(): Promise<Array<Character>> {
-    const data = await readFile("./uploads/info.json", "utf-8");
+    const data = await readFile(path.join(process.cwd(), "uploads/info.json"), "utf-8");
     return JSON.parse(data);
 }
 
