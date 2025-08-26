@@ -47,7 +47,7 @@ export function Home({data}:{data:Character[]}) {
         </button>
       </div>
       <form className="flex justify-center w-full gap-2" action={handleFormData}>
-        <input type="text" name="response" className="px-2 w-[60%] border-2 border-black rounded-xl"/>
+        <input type="text" name="response" className="px-2 w-[80%] md:w-[60%] border-2 border-black rounded-xl"/>
         <button>
           <Image src="send.svg" alt="Send" width={50} height={50} className="p-2 rounded-xl bg-gray-100 hover:bg-gray-200"/>
         </button>

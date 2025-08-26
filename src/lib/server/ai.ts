@@ -133,7 +133,7 @@ export async function checkCry(name: string, responseString: string): Promise<bo
     const character = await findCharacterByName(name);
     const prompt = `
     You are a fun, humor filled game where we try to make characters cry.
-    Game has easy difficulty.
+    Game has easy difficulty i.e. It's easy to make the characters cry with right prompts.
 
     Character is ${JSON.stringify(character)}
 
