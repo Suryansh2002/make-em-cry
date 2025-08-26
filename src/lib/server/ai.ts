@@ -88,6 +88,7 @@ export async function generateCharacter(){
     let allData = await loadData();
     const names = allData.map(character => character.name);
     const professions = allData.map(character => character.profession);
+    // @typescript
     const tools:any[] = [
         {
             type: "function",
@@ -119,7 +120,7 @@ export async function generateCharacter(){
         tools,
         tool_choice: "required"
     })
-    // @ts-ignore
+    // @ts-expect-error 
     const character: Character = {id: uuidv4(), ...JSON.parse(response.output[0].arguments)};
     allData = await loadData();
     allData.push(character);
@@ -163,8 +164,7 @@ export async function checkCry(name: string, responseString: string): Promise<bo
         ],
         tool_choice: "required"
     })
-    // @ts-ignore
-    const result = JSON.parse(response.output[0].arguments);
-    console.log(result)
+    // @ts-expect-error
+    const result:any = JSON.parse(response.output[0].arguments);
     return result.cried;
 }

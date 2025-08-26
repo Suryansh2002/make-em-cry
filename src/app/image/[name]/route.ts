@@ -17,7 +17,7 @@ export async function GET(request: Request, { params }: { params: Promise<{ name
   try {
     const data = await readFile(path.join(process.cwd(), 'uploads', 'images', fn));
     return new Response(new Uint8Array(data), { headers: { 'Content-Type': 'image/png' } });
-  } catch (e: any) {
+  } catch {
     return new Response('Not found', { status: 404 });
   }
 }

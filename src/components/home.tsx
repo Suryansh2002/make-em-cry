@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useCallback, useState } from "react";
+import { Suspense, useCallback, useState } from "react";
 import { checkCry, loadData } from "@/lib/actions";
 import Delete from "./delete";
 
@@ -16,7 +16,7 @@ export function Home({data}:{data:Character[]}) {
     loadData(index).then(
       data => setCdata(data)
     )
-  }, []);
+  }, [index]);
 
   const handleFormData = useCallback((formData: FormData) => {
     const response = formData.get("response");
@@ -28,7 +28,9 @@ export function Home({data}:{data:Character[]}) {
 
   return <main className="h-screen w-screen flex items-center justify-center">
     <div className="flex flex-col items-center absolute px-6">
-      <Delete name={cdata[index]?.name} />
+      <Suspense fallback={<></>}>
+        <Delete name={cdata[index]?.name} />
+      </Suspense>
       <h1 className="text-3xl font-semibold">Make {cdata[index]?.name} cry</h1>
       <p>{cdata[index]?.introduction}</p>
       <div className="flex">
