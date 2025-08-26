@@ -1,34 +1,59 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## Make ’Em Cry
 
-## Getting Started
+A tiny Next.js game where you meet quirky characters and try to make them cry with your message. Characters and their images live in `uploads/`. New characters (and images) can be generated via OpenAI + Google Gemini as users browse.
 
-First, run the development server:
+### What’s inside
+- Next.js 15 (App Router) + React 19
+- Server Actions for data and AI calls
+- Image route: `src/app/image/[name]/route.ts` serves files from `uploads/images`
+- Data file: `uploads/info.json`
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## Prerequisites
+- Node.js 18+
+- pnpm (recommended)
+- API keys (optional but needed for auto-generation):
+	- `OPENAI_API_KEY`
+	- `GEMINI_API_KEY`
+- Optional admin password for deleting: `PASSWORD`
+
+## Setup
+1) Create a `.env.local` file in the project root:
+
+```
+OPENAI_API_KEY=your-openai-key
+GEMINI_API_KEY=your-gemini-key
+PASSWORD=your-admin-password
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2) Install dependencies:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+pnpm install
+```
 
-## Learn More
+3) The repo ships with some sample characters/images in `uploads/`. Without API keys you can still browse; new character/image generation requires keys.
 
-To learn more about Next.js, take a look at the following resources:
+## Run
+- Dev server:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```
+pnpm dev
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- Production build and start:
 
-## Deploy on Vercel
+```
+pnpm build
+pnpm start
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Open http://localhost:3000 and use the arrows to switch characters. Type a message and hit send to see if they cry. Toggling between normal and crying images uses the `/image/[name]` route.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Code map
+- Page: `src/app/page.tsx`
+- UI: `src/components/home.tsx`
+- Server actions: `src/lib/actions.ts`
+- AI + generation: `src/lib/server/ai.ts`
+- File I/O helpers: `src/lib/server/file.ts`
+- Image route: `src/app/image/[name]/route.ts`
+

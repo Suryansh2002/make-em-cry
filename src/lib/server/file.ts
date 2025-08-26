@@ -13,12 +13,12 @@ export async function deleteCharacter(name: string): Promise<void> {
     const newData = data.filter(character => character.name !== name);
     await writeFile(path.join(process.cwd(), "uploads/info.json"), JSON.stringify(newData));
     try{
-        await unlink(path.join(process.cwd(), "uploads", `${name}.png`));
+        await unlink(path.join(process.cwd(), "uploads/images", `${name}.png`));
     } catch (error) {
         console.error(`Error deleting ${name}.png:`, error);
     }
     try {
-        await unlink(path.join(process.cwd(), "uploads", `${name}-crying.png`));
+        await unlink(path.join(process.cwd(), "uploads/images", `${name}-crying.png`));
     } catch (error) {
         console.error(`Error deleting ${name}-crying.png:`, error);
     }
