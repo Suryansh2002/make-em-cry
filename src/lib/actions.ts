@@ -2,9 +2,16 @@
 import { generateCharacter, checkCry as _checkCry } from "./server/ai";
 import { loadData as _loadData, deleteCharacter as _deleteCharacter } from "./server/file";
 
+let lastGeneratedAt = 0
+
 export async function loadData(index:number){
     const data = await _loadData();
-    if (index >= (data.length - 5)) generateCharacter();
+    if (index >= (data.length - 5)){
+        if (Date.now() - lastGeneratedAt > 100_000) {
+            lastGeneratedAt = Date.now();
+            generateCharacter();
+        }
+    }
     return data;
 }
 

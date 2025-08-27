@@ -93,12 +93,12 @@ export async function generateCharacter(){
         {
             type: "function",
             name: "generateCharacter",
-            description: "Generates a random character.",
+            description: "Generates a random character",
             parameters: {
                 type: "object",
                 properties: {
                     name: {type: "string"},
-                    introduction: {type: "string", description: "A brief introduction about the character."},
+                    introduction: {type: "string", description: "An introduction about the character, make it engaging and funny but short"},
                     age: {type: "number", description: "The age of the character."},
                     profession: {type: "string", description: "The profession of the character."},
                     gender: {type: "string", enum: ["male", "female"]},
@@ -133,7 +133,7 @@ export async function checkCry(name: string, responseString: string): Promise<bo
     const character = await findCharacterByName(name);
     const prompt = `
     You are a fun, humor filled game where we try to make characters cry.
-    Game has easy difficulty i.e. It's easy to make the characters cry with right prompts.
+    It's easy to make the characters cry with right prompts.
 
     Character is ${JSON.stringify(character)}
 
