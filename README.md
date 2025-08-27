@@ -2,6 +2,8 @@
 
 A tiny Next.js game where you meet quirky characters and try to make them cry with your message. Characters and their images live in `uploads/`. New characters (and images) can be generated via OpenAI + Google Gemini as users browse.
 
+![signup](https://github.com/Suryansh2002/make-em-cry/blob/main/public/screenshot.png?raw=true)
+
 ### What’s inside
 - Next.js 15 (App Router) + React 19
 - Server Actions for data and AI calls

@@ -50,8 +50,8 @@ export function Home({data, swaps}:{data:Character[], swaps:Array<[number, numbe
         </button>
         {
           crying ? 
-          <Image src={`/image/${cdata[index]?.name}-crying.png`} alt={`Crying`}  width={500} height={500} className="w-40 md:w-96"/> : 
-          <Image src={`/image/${cdata[index]?.name}.png`} alt={`Fine`} width={500} height={500} className="w-40 md:w-96"/>
+          <Image src={`/image/${cdata[index]?.name}-crying.png`} alt={`Crying`}  width={500} height={500} className="w-52 md:w-96"/> : 
+          <Image src={`/image/${cdata[index]?.name}.png`} alt={`Fine`} width={500} height={500} className="w-52 md:w-96"/>
         }
         <button onClick={() => navigate((index + 1) % cdata.length)}>
           <Image src="right.svg" alt="Right" width={50} height={50} className="p-2 rounded-xl hover:bg-gray-50 w-10"/>
