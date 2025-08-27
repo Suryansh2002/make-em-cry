@@ -3,7 +3,7 @@ import { canDelete, deleteCharacter } from "@/lib/actions";
 import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 
-export default function Delete({name}:{name:string}){
+export function Delete({name}:{name:string}){
     const params = useSearchParams();
     const [show, setShow] = useState(false);
     useEffect(() => {

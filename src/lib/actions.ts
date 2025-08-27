@@ -7,7 +7,7 @@ let lastGeneratedAt = 0
 export async function loadData(index:number){
     const data = await _loadData();
     if (index >= (data.length - 5)){
-        if (Date.now() - lastGeneratedAt > 100_000) {
+        if (Date.now() - lastGeneratedAt > 300_000) {
             lastGeneratedAt = Date.now();
             generateCharacter();
         }

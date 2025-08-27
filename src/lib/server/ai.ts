@@ -98,7 +98,7 @@ export async function generateCharacter(){
                 type: "object",
                 properties: {
                     name: {type: "string"},
-                    introduction: {type: "string", description: "An introduction about the character, make it engaging and funny but short"},
+                    introduction: {type: "string", description: "An introduction about the character, make it engaging and funny"},
                     age: {type: "number", description: "The age of the character."},
                     profession: {type: "string", description: "The profession of the character."},
                     gender: {type: "string", enum: ["male", "female"]},
