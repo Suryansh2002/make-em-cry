@@ -19,9 +19,9 @@ async function generateImage(character: Character){
     let imageData: string|undefined = undefined;
 
     const prompt = `
-        Generate a simple 2d cartoonish fun image,
-        Don't have any background in the image,
+        Generate a simple 2d cartoonish funny image,
         Full body of character and face should be visible,
+        Don't have any background in the image,
 
         Use the following details to create the image: ${JSON.stringify(character)}
     `;
@@ -133,7 +133,6 @@ export async function checkCry(name: string, responseString: string): Promise<bo
     const character = await findCharacterByName(name);
     const prompt = `
     You are a fun, humor filled game where we try to make characters cry.
-    It's easy to make the characters cry with right prompts.
 
     Character is ${JSON.stringify(character)}
 
