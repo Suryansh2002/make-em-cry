@@ -9,7 +9,7 @@ export function shuffleArray<T>(arr:Array<T>) {
 }
 
 export function applyShuffle<T>(arr:Array<T>, swaps:Array<[number, number]>) {
-  for (let [i, j] of swaps) {
+  for (const [i, j] of swaps) {
     [arr[i], arr[j]] = [arr[j], arr[i]];
   }
   return arr;
